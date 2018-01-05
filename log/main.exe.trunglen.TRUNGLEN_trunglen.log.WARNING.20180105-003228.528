@@ -1,0 +1,6 @@
+Log file created at: 2018/01/05 00:32:28
+Running on machine: trunglen
+Binary: Built with gc go1.9.2 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0105 00:32:28.454875     528 box.go:46] websocket: close 1005 (no status)
+E0105 00:32:42.966542     528 box.go:46] websocket: close 1005 (no status)

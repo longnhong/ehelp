@@ -1,0 +1,5 @@
+Log file created at: 2018/01/04 15:15:37
+Running on machine: trunglen
+Binary: Built with gc go1.9.2 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0104 15:15:37.672608   16004 room.go:37] websocket: close 1001 (going away)

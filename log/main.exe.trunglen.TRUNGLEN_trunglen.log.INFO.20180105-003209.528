@@ -1,0 +1,14 @@
+Log file created at: 2018/01/05 00:32:09
+Running on machine: trunglen
+Binary: Built with gc go1.9.2 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0105 00:32:09.802690     528 box.go:34] map[1:0xc042281050]
+I0105 00:32:15.520604     528 box.go:34] map[1:0xc042281050 2:0xc0422811a0]
+E0105 00:32:28.454875     528 box.go:46] websocket: close 1005 (no status)
+I0105 00:32:28.458381     528 client.go:26] client da roi
+I0105 00:32:28.458882     528 client.go:27] map[1:0xc042281050]
+I0105 00:32:37.400677     528 box.go:34] map[1:0xc042281050 2:0xc0421ae4a0]
+E0105 00:32:42.966542     528 box.go:46] websocket: close 1005 (no status)
+I0105 00:32:42.967043     528 client.go:26] client da roi
+I0105 00:32:42.967544     528 client.go:27] map[2:0xc0421ae4a0]
+I0105 00:32:47.137270     528 box.go:34] map[1:0xc042281460 2:0xc0421ae4a0]

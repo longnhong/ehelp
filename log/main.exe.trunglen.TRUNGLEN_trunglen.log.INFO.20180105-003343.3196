@@ -1,0 +1,9 @@
+Log file created at: 2018/01/05 00:33:43
+Running on machine: trunglen
+Binary: Built with gc go1.9.2 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0105 00:33:43.458271    3196 box.go:34] map[1:0xc0423081e0]
+I0105 00:33:46.478668    3196 box.go:34] map[1:0xc0423081e0 2:0xc04217b6d0]
+I0105 00:33:48.870149    3196 room.go:37] {2 dsad}
+I0105 00:34:10.045906    3196 room.go:37] {2 12345}
+I0105 00:34:18.357805    3196 room.go:37] {1 12345}

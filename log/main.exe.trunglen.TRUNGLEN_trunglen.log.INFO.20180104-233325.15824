@@ -1,0 +1,6 @@
+Log file created at: 2018/01/04 23:33:25
+Running on machine: trunglen
+Binary: Built with gc go1.9.2 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0104 23:33:25.391240   15824 box.go:27] bi defer
+I0104 23:33:25.393242   15824 client.go:25] xoa client

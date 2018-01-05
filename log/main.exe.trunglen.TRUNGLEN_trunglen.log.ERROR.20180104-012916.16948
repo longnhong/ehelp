@@ -1,0 +1,5 @@
+Log file created at: 2018/01/04 01:29:16
+Running on machine: trunglen
+Binary: Built with gc go1.9.2 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0104 01:29:16.820078   16948 survey.go:27] <nil>
