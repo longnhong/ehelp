@@ -1,11 +1,11 @@
 package api
 
 import (
-	"ehelp/api/survey"
+	"ehelp/api/service"
 
 	"github.com/gin-gonic/gin"
 )
 
 func InitApi(root *gin.RouterGroup) {
-	survey.NewSurveyServer(root, "survey")
+	service.NewServiceServer(root, "service")
 }

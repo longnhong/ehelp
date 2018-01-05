@@ -1,2 +1,2 @@
-[GIN] 2018/01/05 - 09:30:03 | 200 |     17.5287ms |             ::1 | GET      /api/survey/list
-[GIN] 2018/01/05 - 09:30:03 | 404 |            0s |             ::1 | GET      /favicon.ico
+[GIN] 2018/01/05 - 22:03:19 | 200 |      1.0004ms |             ::1 | POST     /api/service/create
+[GIN] 2018/01/05 - 22:03:30 | 200 |      1.0008ms |             ::1 | POST     /api/service/create
