@@ -1,0 +1,6 @@
+Log file created at: 2018/01/06 10:18:39
+Running on machine: trunglen
+Binary: Built with gc go1.9.2 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0106 10:18:39.695486    4364 service.go:36] Key: 'Service.Name' Error:Field validation for 'Name' failed on the 'required' tag
+E0106 10:23:57.824196    4364 service.go:36] Key: 'Service.Name' Error:Field validation for 'Name' failed on the 'required' tag

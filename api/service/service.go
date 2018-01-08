@@ -2,6 +2,7 @@ package service
 
 import (
 	"ehelp/o/service"
+	_ "ehelp/o/user"
 	"ehelp/x/rest"
 	"g/x/web"
 
@@ -24,5 +25,6 @@ func (s *ServiceServer) handleCreate(ctx *gin.Context) {
 	var srv *service.Service
 	web.AssertNil(ctx.ShouldBindJSON(&srv))
 	web.AssertNil(service.Create(srv))
+
 	s.SendData(ctx, srv)
 }
