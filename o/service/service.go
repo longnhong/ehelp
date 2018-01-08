@@ -2,12 +2,10 @@ package service
 
 import (
 	"ehelp/x/db/mongodb"
-	"g/x/math"
 
 	"github.com/golang/glog"
 
 	validator "gopkg.in/go-playground/validator.v9"
-	mgo "gopkg.in/mgo.v2"
 )
 
 type Service struct {
@@ -22,19 +20,16 @@ type Tool struct {
 	Price             int    `bson:"price" json:"price"`
 }
 
-func newServiceCollection() *mgo.Collection {
-	return mongodb.NewCollection("service")
+func newServiceTable() *mongodb.Table {
+	return mongodb.NewTable("service")
 }
 
 var validate = validator.New()
 
 func Create(s *Service) error {
-	s.ID = math.RandString("sv", 4)
-	s.BeforeCreate()
-
 	if err := validate.Struct(s); err != nil {
 		glog.Error(err)
 		return err
 	}
-	return newServiceCollection().Insert(s)
+	return newServiceTable().Create(s)
 }

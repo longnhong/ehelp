@@ -40,8 +40,7 @@ const (
 )
 
 func (u *User) New() {
-	rest.AssertNil(validator.Validate(u), checkStaffExist(u.UserName))
-	u.BeforeCreate()
+	rest.AssertNil(validator.Validate(u))
 	hashed, _ := u.Password.gererateHashedPassword()
 	u.Password = hashed
 
