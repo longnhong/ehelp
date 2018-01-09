@@ -1,6 +1,8 @@
 package rest
 
 import (
+	"ehelp/x/rest/validator"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,6 +16,11 @@ func (r *JsonRender) SendData(ctx *gin.Context, data interface{}) {
 		"data":   data,
 		"status": "ok",
 	})
+}
+func (r *JsonRender) DecodeBody(ctx *gin.Context, data interface{}) {
+	AssertNil(BadRequest(ctx.BindJSON(&data).Error()))
+	AssertNil(BadRequest(validator.Validate(data).Error()))
+
 }
 func (r *JsonRender) Success(ctx *gin.Context) {
 	ctx.JSON(STATUS_OK, map[string]interface{}{

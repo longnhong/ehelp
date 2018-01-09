@@ -4,14 +4,33 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-func GetByUNamePwd(uname string, pwd string) *User {
+func GetByUNamePwd(uname, pwd, role string) (*User, error) {
 	var user *User
-	err := newUserTable().FindOne(bson.M{"uname": uname}, &user)
+	var query = bson.M{"uname": uname, "role": role}
+	if role == string(ADMIN) {
+		query = bson.M{
+			"uname": uname,
+			"$or": []bson.M{
+				bson.M{"role": ADMIN},
+				bson.M{"role": SUPER_ADMIN},
+			},
+		}
+	}
+	err := UserTable.FindOne(query, &user)
 	if err != nil {
-
+		return nil, err
 	}
 	if err := user.Password.comparePassword(pwd); err == nil {
-		return user
+		return user, nil
 	}
-	return nil
+	return nil, err
+}
+
+func GetSuperUser() *User {
+	var user *User
+	err := UserTable.FindOne(bson.M{"role": SUPER_ADMIN}, &user)
+	if err != nil {
+		return nil
+	}
+	return user
 }

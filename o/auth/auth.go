@@ -2,7 +2,6 @@ package auth
 
 import (
 	"ehelp/x/db/mongodb"
-	"ehelp/x/rest"
 )
 
 type Auth struct {
@@ -11,13 +10,20 @@ type Auth struct {
 	UserID            string `bson:"user_id" json:"user_id"`
 }
 
-func newAuthTable() *mongodb.Table {
-	return mongodb.NewTable("auth")
-}
-func Create(userID string, role string) *Auth {
+var AuthTable = mongodb.NewTable("auth", "k", 80)
+
+func Create(userID string, role string) (*Auth, error) {
 	var a = &Auth{}
 	a.UserID = userID
 	a.Role = role
-	rest.AssertNil(newAuthTable().Create(a))
-	return a
+	err := AuthTable.Create(a)
+	if err != nil {
+		return nil, err
+	}
+	return a, nil
+}
+
+func GetByID(id string) (*Auth, error) {
+	var auth *Auth
+	return auth, AuthTable.FindByID(id, &auth)
 }

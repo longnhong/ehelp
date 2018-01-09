@@ -4,6 +4,7 @@ import (
 	"ehelp/x/config"
 	"ehelp/x/db/mongodb"
 	"flag"
+	"fmt"
 	"io"
 	"os"
 	"path"
@@ -39,6 +40,7 @@ func initLog() {
 	}
 }
 func initDB() {
+	fmt.Println("init db")
 	// Read configuration.
 	mongodb.MaxPool = context.IntDefault("mongo.maxPool", 0)
 	mongodb.PATH, _ = context.String("mongo.path")

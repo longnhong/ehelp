@@ -2,8 +2,6 @@ package user
 
 import (
 	"ehelp/x/db/mongodb"
-	"ehelp/x/rest"
-	"ehelp/x/rest/validator"
 )
 
 type User struct {
@@ -13,13 +11,16 @@ type User struct {
 	Password          password `bson:"password" json:"password" validate:"required"`
 	Role              Role     `bson:"role" json:"role"`
 }
+type Owner struct {
+	User    `bson:",inline"`
+	Address string `bson:"address" json:"address" validate:"required"`
+	Area    string `bson:"area" json:"area" validate:"required"`
+	Phone   string `bson:"phone" json:"phone" validate:"required"`
+}
 type Staff struct {
-	User           `bson:",inline" validate:"required"`
+	Owner          `bson:",inline"`
 	BirthDate      string   `bson:"birth_date" json:"birth_date" `
-	Phone          string   `bson:"phone" json:"phone" validate:"required"`
 	IdentityNumber string   `bson:"identity_number" json:"identity_number" validate:"required"`
-	Address        string   `bson:"address" json:"address" validate:"required"`
-	Area           string   `bson:"area" json:"area" validate:"required"`
 	Service        []string `bson:"services" json:"services"`
 	Certificate    string   `bson:"certificate" json:"certificate" `
 	Status         Status   `bson:"status" json:"status"`
@@ -37,17 +38,5 @@ const (
 	SUPER_ADMIN = Role("super_admin")
 	ADMIN       = Role("admin")
 	STAFF       = Role("staff")
+	OWNER       = Role("owner")
 )
-
-func (u *User) New() {
-	rest.AssertNil(validator.Validate(u))
-	hashed, _ := u.Password.gererateHashedPassword()
-	u.Password = hashed
-
-}
-func (u *Staff) New() {
-	u.User.New()
-	rest.AssertNil(validator.Validate(u))
-	u.Role = STAFF
-	u.Status = APPROVE
-}
